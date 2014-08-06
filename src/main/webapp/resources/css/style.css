@@ -1,0 +1,54 @@
+.help {
+	display: none;
+	font-size: 90%;
+}
+input{
+	padding: 3px 0px 3px 3px;
+	margin-bottom: 15px;
+}
+
+input:focus+.help {
+	display: inline-block;
+	font-style: oblique;
+	color: black;
+}
+
+.alignLabel {
+	margin-left: 20px;
+	padding-left: 20px;
+	font-family: sans-serif;
+	font-size: 14px;
+}
+
+.alignInput {
+	margin-left: 20px;
+}
+
+.cDFieldset {
+	margin-left: 400px;
+	margin-top: 300px; border-style : solid;
+	min-width: 0;
+	max-width: 350px;
+	border-style: solid;
+	border-radius: 13px;
+}
+
+.aLink {
+	font-family: sans-serif;
+	font-size: 13px;
+}
+
+.legend {
+	font-family: monospace;
+	font-weight: bold;
+}
+.button {
+    border: 1px solid #006;
+    background: #9cf;
+	border-radius: 5px;
+	padding: 3px 0px 3px 3px;
+}
+.button:hover {
+    border: 1px solid #f00;
+    background: #eef;
+}
