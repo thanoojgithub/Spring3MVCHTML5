@@ -3,47 +3,41 @@ package com.html5one.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.html5one.vo.Customer;
 
 @Controller
+@RequestMapping("/Spring3MVCHTML5One")
 public class CustomerDetailsController {
 
-	@RequestMapping("/")
-	public String welcome(ModelMap model) {
-		return "index";
+	private static final Logger logger = LoggerFactory.getLogger(CustomerDetailsController.class);
 
-	}
-
-	@RequestMapping("addCustomer.do")
-	public String setCustomerDetails(@ModelAttribute("customer") Customer customer, BindingResult result, Model map) {
-		map.addAttribute("customer", customer);
-		System.out.println(customer);
-		return "viewCustomerDetails";
-	}
-	
-	@RequestMapping("getVehicleList.do")
-	public @ResponseBody List<String> getVechicle(@RequestParam(value = "vehicle") String vehicle, Model map) {
-		map.addAttribute("vehicle", vehicle);
-		System.out.println(vehicle);
-		List<String> vehicleList = new ArrayList<String>();
-		if("Bike".equals(vehicle)){
-			vehicleList.add("Suzuki");
-			vehicleList.add("Honda");
-			vehicleList.add("Yamaha");
-		}else{
-			vehicleList.add("audi");
-			vehicleList.add("Honda");
-			vehicleList.add("BMW");	
+	@RequestMapping("/customerDetails")
+	public String getCustomerDetails(Model model) {
+		logger.debug("CustomerDetailsController - sayHello - start");
+		List<Customer> customers = new ArrayList<Customer>();
+		Customer customer = new Customer();
+		customer.setFirstName("Sriram");
+		customer.setLastName("Ayodya");
+		customer.setEmail("Sriram@Ayodya.com");
+		customers.add(customer);
+		Customer customer1 = new Customer();
+		customer1.setFirstName("Seetha");
+		customer1.setLastName("Midhila");
+		customer1.setEmail("Seetha@Midhila.com");
+		customers.add(customer1);
+		model.addAttribute("customers", customers);
+		for (Customer cust : customers) {
+			System.out.println(cust);
 		}
-		return vehicleList;
+		logger.debug("CustomerDetailsController - sayHello - end");
+		return "customers";
+
 	}
+
 }

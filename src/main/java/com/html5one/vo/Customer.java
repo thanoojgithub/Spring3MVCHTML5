@@ -6,45 +6,24 @@ public class Customer implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private String name;
-	private String bDay;
+	private String firstName;
+	private String LastName;
 	private String email;
-	private String gender;
-	private String vehicle;
-	private String bikeBrand;
-	private String carBrand;
-	private String note;
 
-	public Customer() {
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public Customer(String name, String bDay, String email, String gender,
-			String vehicle, String bikeBrand, String carBrand, String note) {
-		super();
-		this.name = name;
-		this.bDay = bDay;
-		this.email = email;
-		this.gender = gender;
-		this.vehicle = vehicle;
-		this.bikeBrand = bikeBrand;
-		this.carBrand = carBrand;
-		this.note = note;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getName() {
-		return name;
+	public String getLastName() {
+		return LastName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getbDay() {
-		return bDay;
-	}
-
-	public void setbDay(String bDay) {
-		this.bDay = bDay;
+	public void setLastName(String lastName) {
+		LastName = lastName;
 	}
 
 	public String getEmail() {
@@ -55,53 +34,9 @@ public class Customer implements Serializable {
 		this.email = email;
 	}
 
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public String getVehicle() {
-		return vehicle;
-	}
-
-	public void setVehicle(String vehicle) {
-		this.vehicle = vehicle;
-	}
-
-	public String getBikeBrand() {
-		return bikeBrand;
-	}
-
-	public void setBikeBrand(String bikeBrand) {
-		this.bikeBrand = bikeBrand;
-	}
-
-	public String getCarBrand() {
-		return carBrand;
-	}
-
-	public void setCarBrand(String carBrand) {
-		this.carBrand = carBrand;
-	}
-
-	public String getNote() {
-		return note;
-	}
-
-	public void setNote(String note) {
-		this.note = note;
-	}
-
 	@Override
 	public String toString() {
-		return "Name : " + name + " || " + "bDay : " + bDay + " || "
-				+ "email : " + email + " || " + "gender : " + gender + " || "
-				+ "vehicle: " + vehicle + " || " + " bykeBrand : " + bikeBrand
-				+ " || " + " carBrand : " + carBrand + " || " + "Note:  "
-				+ note;
+		return "Customer [firstName=" + firstName + ", LastName=" + LastName
+				+ ", email=" + email + "]";
 	}
-
 }
