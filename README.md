@@ -1,4 +1,4 @@
 Spring3MVCHTML5
 ===============
 
-Spring3MVC + HTML5 + JSP
+Spring3MVC + HTML5 + thymeleaf + Bootstrap
