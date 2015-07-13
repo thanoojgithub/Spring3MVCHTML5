@@ -3,30 +3,41 @@
 <head>
 <title>Cutomer Details</title>
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-<!-- Latest compiled and minified JavaScript -->
-<script th:src="@{/js/jquery-2.1.3.min.js}"></script>
+<link th:href='${"static/css/bootstrap.min.css"}' rel="stylesheet" />
 
 </head>
 <body>
 	<div class="panel panel-primary">
-		<div class="panel-heading">Customer Details</div>
-		<table class="table table-hover table-bordered table-nonfluid">
-			<thead>
-				<tr>
-					<th>Firstname</th>
-					<th>Lastname</th>
-					<th>Email</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="cust: ${customers}">
-					<td th:text="${cust.firstName}"></td>
-					<td th:text="${cust.lastName}"></td>
-					<td th:text="${cust.email}"></td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="panel-heading">
+			Customer Details
+			<button id="clear_all" type="button"
+				class="btn btn-danger pull-right"
+				style="padding-bottom: 2px; padding-top: 3px;">CLEAR</button>
+		</div>
+		<div th:if="${not #lists.isEmpty(customers)}">
+			<table class="table table-hover table-bordered table-nonfluid">
+				<thead>
+					<tr>
+						<th>CID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cust: ${customers}">
+						<td th:text="${cust.cId}"></td>
+						<td th:text="${cust.firstName}"></td>
+						<td th:text="${cust.lastName}"></td>
+						<td th:text="${cust.email}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div th:if="${#lists.isEmpty(customers)}">You don't have any Customers</div>
 	</div>
+	<script th:src='${"static/js/jquery-2.1.3.min.js"}'></script>
+	<script th:src='${"static/js/customers.js"}'></script>
+
 </body>
 </html>
