@@ -8,8 +8,8 @@ $(document).ready(function() {
 			data : {},
 			async : false,
 			success : function(data) {
-				alert("clearAllCustomers - success");
-				refresh();
+				alert("clearAllCustomers - success!");
+				//refresh();
 			},
 			error : function(data) {
 				alert(data);
